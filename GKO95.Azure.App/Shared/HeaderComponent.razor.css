@@ -1,0 +1,31 @@
+﻿header {
+    padding: 16px 0px;
+    position: sticky;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - (16px * 2));
+    height: fit-content;
+    margin: 0px auto;
+}
+
+.navbar-button-group {
+    display: inline-flex;
+    white-space: nowrap;
+    align-self: center;
+}
+
+.navbar-button {
+    display: inline-flex;
+    align-content: center;
+    margin: 0px 12px;
+    width: 36px;
+    height: 36px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 36px;
+    cursor: pointer;
+}
