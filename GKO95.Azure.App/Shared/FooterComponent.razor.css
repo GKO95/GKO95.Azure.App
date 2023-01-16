@@ -1,0 +1,12 @@
+﻿footer {
+    padding: 16px 0px;
+    -webkit-user-select: none;
+}
+
+#footer-copyright {
+    letter-spacing: -1px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
