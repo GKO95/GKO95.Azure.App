@@ -1,13 +1,29 @@
 ﻿@inherits LayoutComponentBase
+@inject IConfiguration Configuration
 
-<PageTitle>GKO95</PageTitle>
+<PageTitle>@Configuration["GitHub:User"]</PageTitle>
 
 <div class="page">
-    <HeaderComponent />
-
+	<header>
+		<nav>
+			<div class="navbar-button-group">
+				<a class="navbar-button" style="background-image: url('/images/icons/icon-home.png');" href="" />
+				<a class="navbar-button" style="background-image: url('/images/icons/icon-menu.png');" />
+			</div>
+			<div class="navbar-button-group">
+				<a class="navbar-button" style="background-image: url('/images/icons/icon-theme.png');" />
+				<a class="navbar-button" style="background-image: url('/images/icons/icon-language.png')" />
+			</div>
+		</nav>
+	</header>
+	
     <main>
         @Body
     </main>
 
-    <FooterComponent />
+	<footer>
+		<div id="footer-copyright">
+			<span>© Copyright 2021-2023. All Rights Reserved.</span>
+		</div>
+	</footer>
 </div>
