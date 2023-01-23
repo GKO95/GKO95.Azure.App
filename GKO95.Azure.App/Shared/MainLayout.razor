@@ -7,12 +7,12 @@
 	<header>
 		<nav>
 			<div class="navbar-button-group">
-				<a class="navbar-button" style="background-image: url('/images/icons/icon-home.png');" href="" />
-				<a class="navbar-button" style="background-image: url('/images/icons/icon-menu.png');" />
+				<a class="navbar-button" style="@IconPath("icon-home.png");" href="" />
+				<a class="navbar-button" style="@IconPath("icon-menu.png");" />
 			</div>
 			<div class="navbar-button-group">
-				<a class="navbar-button" style="background-image: url('/images/icons/icon-theme.png');" />
-				<a class="navbar-button" style="background-image: url('/images/icons/icon-language.png')" />
+				<a class="navbar-button" style="@IconPath("icon-theme.png");" />
+				<a class="navbar-button" style="@IconPath("icon-language.png");" />
 			</div>
 		</nav>
 	</header>
@@ -27,3 +27,7 @@
 		</div>
 	</footer>
 </div>
+
+@code {
+	private string IconPath(string image) => $"background-image: url('/images/icons/{image}')";
+}
