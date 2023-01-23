@@ -1,7 +1,36 @@
 ﻿@page "/"
 
-<PageTitle>Home | GKO95</PageTitle>
+@using Octokit;
+@inject IConfiguration Configuration
 
-<h1>Hello, world!</h1>
+<PageTitle>Home | @Configuration["GitHub:User"]</PageTitle>
 
-Welcome to your new app.
+@using GKO95.Azure.App.Data;
+@inject GitHubProfileService ProfileService
+
+<div style="text-align: center; padding: 1rem 0;">
+	<h1>🚧 Work in Progress 🚧</h1>
+	<sub>
+		<a href="https://github.com/@Configuration["GitHub:User"]/@Configuration["GitHub:Docs"]">@Configuration["GitHub:Docs"]</a> last update:
+	
+		@if (dateUpdate.HasValue)
+		{
+			<text>@dateUpdate.Value.ToString("MMMM dd, yyyy HH:mm:ss zzz")</text>
+		}
+		else
+		{
+			<text>Unknown</text>
+		}
+		
+	</sub>
+</div>
+
+@code {
+	private DateTimeOffset? dateUpdate;
+
+	protected override async Task OnInitializedAsync()
+	{
+		var repo = await ProfileService.github.Repository.Get(Configuration["GitHub:User"], Configuration["GitHub:Docs"]);
+		dateUpdate = repo.PushedAt?.ToLocalTime();
+	}
+}
