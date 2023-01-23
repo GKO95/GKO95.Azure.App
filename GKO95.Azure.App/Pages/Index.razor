@@ -6,7 +6,7 @@
 <PageTitle>Home | @Configuration["GitHub:User"]</PageTitle>
 
 @using GKO95.Azure.App.Data;
-@inject GitHubProfileService ProfileService
+@inject GitHubService ProfileService
 
 <div style="text-align: center; padding: 1rem 0;">
 	<h1>🚧 Work in Progress 🚧</h1>
@@ -30,7 +30,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		var repo = await ProfileService.github.Repository.Get(Configuration["GitHub:User"], Configuration["GitHub:Docs"]);
+		var repo = await ProfileService.GetGitHubRepositoryAsync(Configuration["GitHub:User"], Configuration["GitHub:Docs"]);
 		dateUpdate = repo.PushedAt?.ToLocalTime();
 	}
 }
